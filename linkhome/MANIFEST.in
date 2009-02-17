@@ -1,0 +1,2 @@
+recursive-include linkhome/public *
+recursive-include linkhome/templates *
