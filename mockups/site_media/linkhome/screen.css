@@ -1,0 +1,43 @@
+body {
+    color: white;
+    background-color: black;
+    font-family: "Bitstream Vera Sans";
+}
+
+div.header-img {
+    background-color: gray;
+    width: 50em;
+    margin: auto;
+    padding: 4em;
+}
+
+div.content {
+    width: 30em;
+    margin: auto;
+}
+
+/* Buttons currently behave like neuros.tv 'search' button, rather than the
+ * PDF's gradient background, or the pop-up solid background of lists on the
+ * site. Happy to change, of course... */
+
+a.wide-button {
+    font-size: x-large;
+    vertical-align: center;
+    color: white;
+    background-color: #262626;
+    text-decoration: none;
+    text-align: center;
+    margin: .3em;
+    -moz-border-radius: 10px;
+}
+
+a.wide-button:hover {
+    background-color: #ff6600;
+}
+
+.button-content {
+    vertical-align: center;
+    padding: 2em;
+    margin: auto;
+    text-align: center;
+}
