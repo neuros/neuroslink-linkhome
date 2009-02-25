@@ -19,6 +19,9 @@ def make_map():
     map.connect('/proc', controller='procfs', action='index')
     map.connect('/proc/:id', controller='procfs', action='get')
 
+    map.connect('/applications', controller='applications', action='index')
+    map.connect('/applications/:id', controller='applications', action='get')
+
     map.connect(':controller/:action/:id')
     map.connect('*url', controller='template', action='view')
 
