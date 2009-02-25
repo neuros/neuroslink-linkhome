@@ -19,6 +19,8 @@ class ApplicationsController(BaseController):
         f = open(fname, 'r')
         
 	command = "Unknown"
+	
+	# come up with some better parsing for this section
 	for line in f:
 		if line.startswith("Exec="):
 			command = line.partition("=")
@@ -26,6 +28,7 @@ class ApplicationsController(BaseController):
 
 	f = open('/dev/null','w')
 
+	# 
 	subprocess.Popen([command[2].strip()],stdout=f,stderr=f)
 
         return render('/applications/launched.mako', filename = fname, contents = command[2].strip() )
