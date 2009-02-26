@@ -5,5 +5,5 @@
 <title>LinkHome - Application: ${application.AppName} Launched</title>
 </%def>
 
-<p>The following application has been launched ${application.AppName}:</p>
+<li>The following application has been launched: <b> ${application.AppName}</b></li>
 <code><pre>${application.Comment}</pre></code>
