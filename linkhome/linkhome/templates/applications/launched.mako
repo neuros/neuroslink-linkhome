@@ -7,3 +7,4 @@
 
 <li>The following application has been launched: <b> ${application.AppName}</b></li>
 <code><pre>${application.Comment}</pre></code>
+<li><a href="/applications"> Go Back to Applications Menu </a></li>

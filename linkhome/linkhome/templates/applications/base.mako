@@ -4,7 +4,7 @@
     <link href="/css/applications.css" rel="stylesheet" type="text/css" />
     ${self.head_tags()}
   </head>
-
+<h1>| <a href="/applications">Applications</a> | <a href="http://www.neuros.tv">Neuros.TV</a> |</h1>
   <body>
     ${self.body(**context.kwargs)}
   </body>

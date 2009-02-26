@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Pidgin Internet Messenger
+GenericName=Internet Messenger
+Comment=Send instant messages over multiple protocols
+Exec=pidgin
+Icon=/applications/icons/pidgin.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
+X-Ubuntu-Gettext-Domain=pidgin
+X-Ubuntu-Gettext-Domain=pidgin

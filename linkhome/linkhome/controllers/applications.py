@@ -4,23 +4,26 @@ import subprocess
 
 
 class DesktopEntry:
-
 	def Import(self, path, name):
 		self.fname = name.strip()
 		self.fullpath = os.path.join(path,name).strip()
 		self.Comment = "No Information.."
+		self.Icon = "/applications/icons/default-icon.png"
 
 	        f = open(os.path.join(path,name), 'r')
 		for line in f:
                 	if line.startswith("Exec="):
                         	self.Exec = line.partition("=")[2].strip()
-
 			if line.startswith("Name="):
 				self.AppName = line.partition("=")[2].strip()
 
 			if line.startswith("Comment="):
 				self.Comment = line.partition("=")[2].strip()
-	        f.close()		
+
+			if line.startswith("Icon="):
+				self.Icon = line.partition("=")[2].strip()
+					
+		f.close()		
 		
 
 from linkhome.lib.base import *
@@ -30,21 +33,21 @@ log = logging.getLogger(__name__)
 class ApplicationsController(BaseController):
     
     def index(self):
-        paths = filter(lambda p: os.path.isfile(os.path.join('/usr/share/applications', p)),
-                       os.listdir('/usr/share/applications'))
+        paths = filter(lambda p: os.path.isfile(os.path.join('/usr/share/linkhome', p)),
+                       os.listdir('/usr/share/linkhome'))
         paths.sort()
 
 	list = []
 	for file in paths:
 		entry = DesktopEntry()
-		entry.Import('/usr/share/applications',file)
+		entry.Import('/usr/share/linkhome',file)
 		list.append(entry)
 
         return render('/applications/index.mako', files = list)
 
     def get(self, id):
 	entry = DesktopEntry()
-	entry.Import('/usr/share/applications',id)
+	entry.Import('/usr/share/linkhome',id)
 
 	# Open the process and start it in subprocess.
 	# This will be replaced by d-bus application launcher because

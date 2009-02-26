@@ -8,4 +8,6 @@ a:link {color: #ffffff; text-decoration: none; }
 a:active {color: #0000ff,text-decoration: underline; }
 a:visited {color: #ffffff; text-decoration: none; }
 a:hover {color: #ff0000;text-decoration: none; }
+a img {border: 0; }
+
 

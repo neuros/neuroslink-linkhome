@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Add/Remove Software
+GenericName=Package Manager
+Comment=Install and remove applications
+Exec=/usr/bin/gnome-app-install
+Icon=/applications/icons/system-software-install.png
+Terminal=false
+Type=Application
+Categories=PackageManager;GTK;
+StartupNotify=true
+X-KDE-SubstituteUID=true
+OnlyShowIn=GNOME;
+X-Ubuntu-Gettext-Domain=gnome-app-install
