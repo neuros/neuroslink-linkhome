@@ -1,0 +1,13 @@
+To setup run:
+
+sudo ./setup.sh
+
+Then to start the service run:
+
+./start.sh
+
+
+Open your browser on your local machine and browse to:
+
+http://localhost:5000/applications
+
