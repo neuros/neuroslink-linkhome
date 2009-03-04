@@ -7,6 +7,6 @@
 
 
 % for f in files:
-  <li><a href="/applications/${f.fname}"><img src="${f.Icon}"> ${f.AppName}</a> : ${f.Comment}<br /><br 
+  <li><a href="/applications/${f.name}"><img src="${f.Icon}"> ${f.AppName}</a> : ${f.Comment}<br /><br 
 /></li>
 % endfor

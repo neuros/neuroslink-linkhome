@@ -21,6 +21,7 @@ def make_map():
 
     map.connect('/applications', controller='applications', action='index')
     map.connect('/applications/:id', controller='applications', action='get')
+    map.connect('/applications/:app/:prop', controller='applications', action='properties')
 
     map.connect(':controller/:action/:id')
     map.connect('*url', controller='template', action='view')
