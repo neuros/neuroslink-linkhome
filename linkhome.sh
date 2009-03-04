@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd linkhome
+cd /usr/lib/linkhome
 paster serve --reload development.ini
 

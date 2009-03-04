@@ -1,0 +1,4 @@
+example-menu/* /usr/share/linkhome
+linkhome/* /usr/lib/linkhome
+linkhome.sh /usr/bin
+
