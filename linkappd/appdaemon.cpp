@@ -17,7 +17,8 @@
 #include <QtDebug>
 #include <QByteArray>
 
-AppDaemon::AppDaemon()
+AppDaemon::AppDaemon(QObject* parent)
+: QObject(parent)
 {
 	// Read config file and setup first apps
 	QFile configfile("/usr/lib/linkhome/linkappd.conf");

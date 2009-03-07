@@ -29,18 +29,29 @@ class AppDaemon : public QObject
 {
 
 Q_OBJECT
+Q_CLASSINFO("D-Bus Interface","tv.neuros.LinkHome")
+
 
 public:
-	AppDaemon();
+	AppDaemon(QObject* parent = 0);
 
 public slots:
 	void appStart(const QString&, const QStringList&, NProcess::Type);
 
+	// appstart for dbus
+	void AppStart(const QString& wd, const QString& filepath, const QString& args);
+
+signals:
+	void errored();
+	void exited();
+	void started();
 
 private slots:
-		void appExited();
-		void appStarted();
-		void appErrored();
+	void appExited();
+	void appStarted();
+	void appErrored();
+
+
 
 private:
 	void process_config(QFile&);
