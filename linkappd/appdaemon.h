@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QString>
 #include <QStringList>
+#include <QFile>
 
 #include "nprocess.h"
 
@@ -40,6 +41,10 @@ private slots:
 		void appExited();
 		void appStarted();
 		void appErrored();
+
+private:
+	void process_config(QFile&);
+
 };
 
 #endif // APPDAEMON_H

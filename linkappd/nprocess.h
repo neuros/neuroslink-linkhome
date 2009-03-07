@@ -36,6 +36,7 @@ public:
 
 	bool start();
 	void setType(Type);
+	void setWorkingDirectory(const QString&);
 
 private slots:
 	void restart(int,QProcess::ExitStatus);
@@ -47,7 +48,7 @@ private:
 	QString apppath;
 	QStringList arguments;
 	Type type;
-
+	QString workdir;
 signals:
 	void error();
 	void started();

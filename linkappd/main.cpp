@@ -22,8 +22,9 @@ int main(int argc, char *argv[])
 {
 	qDebug() << "Starting Application";
 
-    QCoreApplication a(argc, argv);
+	QCoreApplication a(argc, argv);
+	
 	AppDaemon *app = new AppDaemon();
-	app->appStart(QString("/usr/bin/gqview"),QStringList(""), NProcess::monitor);
-    return a.exec();
+
+	return a.exec();
 }

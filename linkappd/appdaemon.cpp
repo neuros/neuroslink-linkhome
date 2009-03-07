@@ -15,12 +15,28 @@
 
 #include "appdaemon.h"
 #include <QtDebug>
+#include <QByteArray>
 
 AppDaemon::AppDaemon()
 {
+	// Read config file and setup first apps
+	QFile configfile("/usr/lib/linkhome/linkappd.conf");
+	if(configfile.exists())
+	{
+
+		qDebug() << "Processing config file";
+		process_config(configfile);
+	}
+	else
+	{
+
+	}
+
+	// Setup d-bus
+
 }
 
-void AppDaemon::appStart(const QString& fullpath, const QStringList& args, NProcess::Type option)
+void AppDaemon::appStart(const QString& fullpath, const QStringList& args, NProcess::Type option = NProcess::run_once, const QString& wd = "~/" )
 {
 
 	qDebug() << "Starting Application";
@@ -58,4 +74,46 @@ void AppDaemon::appStarted()
 {
 	// Send D-Bus statement that the app started
 		qDebug() << "App has started completely";
+}
+
+
+void AppDaemon::process_config(QFile& file)
+{
+	if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		qDebug() << "Could not open config file: /usr/lib/linkhome/linkapp.conf";
+		return;
+	}
+	else
+	{
+		qDebug() << "File was opened!";
+	}
+	while(!file.atEnd())
+	{
+		qDebug() << "End Not Found Yet";
+
+		QByteArray line = file.readLine();
+		if(!line.startsWith("#"))
+		{
+			QString conf(line);
+			QStringList entry = conf.split(":",QString::SkipEmptyParts);
+			if(entry.size() < 4)
+				qDebug() << "Found whitespace, or config error";	
+			else
+			{
+			qDebug() << "Config File List is: " + entry.at(0) + entry.at(1) + entry.at(2);
+			
+appStart(entry.at(0),entry.at(1),entry.at(2).split(","),entry.at(2).toInt())
+
+
+
+			}
+
+		}
+		else
+		{
+			qDebug() << "Found line that starts with #";
+		}
+
+	}
 }

@@ -1,3 +1,20 @@
+LinkHome Source Code:
+
+  1.) Directory Index
+  2.) Setup & Installation
+
+===============================================================
+1.) DIRECTORY INDEX
+
+    src/linkhome  :  Main Web GUI for LinkHome
+    src/linkappd  :  Application launcher & manager for LinkHome
+    src/debian    :  Debian package configuration
+    src/resources :  System startups scripts, linkhome menus, etc
+
+
+================================================================
+2.) SETUP & INSTALLATION
+
 To setup run:
 
 sudo ./setup.sh
