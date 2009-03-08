@@ -16,14 +16,13 @@
 #ifndef APPDAEMON_H
 #define APPDAEMON_H
 
-
-
 #include <QObject>
 #include <QString>
 #include <QStringList>
 #include <QFile>
 
 #include "nprocess.h"
+#include "linkhomeadaptor.h"
 
 class AppDaemon : public QObject
 {
@@ -36,10 +35,10 @@ public:
 	AppDaemon(QObject* parent = 0);
 
 public slots:
-	void appStart(const QString&, const QStringList&, NProcess::Type);
+	void start(const QString& path, const QStringList& args = QStringList(), NProcess::Type option = NProcess::run_once, const QString& wd = QString("~/"));
 
 	// appstart for dbus
-	void AppStart(const QString& wd, const QString& filepath, const QString& args);
+	void AppStart(const QString& path, const QStringList& args = QStringList(), const QString& wd = QString("~/"));
 
 signals:
 	void errored();

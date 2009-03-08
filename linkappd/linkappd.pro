@@ -15,6 +15,9 @@ CONFIG -= app_bundle
 TEMPLATE = app
 SOURCES += main.cpp \
     appdaemon.cpp \
-    nprocess.cpp
+    nprocess.cpp \
+    linkhomeadaptor.cpp
+
 HEADERS += appdaemon.h \
-    nprocess.h
+    nprocess.h \
+    linkhomeadaptor.h

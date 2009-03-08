@@ -48,7 +48,7 @@ private:
 	QString apppath;
 	QStringList arguments;
 	Type type;
-	QString workdir;
+	QString workingdir;
 signals:
 	void error();
 	void started();

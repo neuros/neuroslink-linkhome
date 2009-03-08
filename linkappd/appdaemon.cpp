@@ -16,10 +16,16 @@
 #include "appdaemon.h"
 #include <QtDebug>
 #include <QByteArray>
+#include <QDBusConnection>
 
 AppDaemon::AppDaemon(QObject* parent)
 : QObject(parent)
 {
+	new LinkHomeAdaptor(this);
+	QDBusConnection dbus = QDBusConnection::sessionBus();
+	dbus.registerObject("/LinkHome",this);
+
+
 	// Read config file and setup first apps
 	QFile configfile("/usr/lib/linkhome/linkappd.conf");
 	if(configfile.exists())
@@ -37,12 +43,18 @@ AppDaemon::AppDaemon(QObject* parent)
 
 }
 
-void AppDaemon::appStart(const QString& fullpath, const QStringList& args, NProcess::Type option = NProcess::run_once, const QString& wd = "~/" )
+void AppDaemon::AppStart(const QString& path, const QStringList& args, const QString& wd)
+{
+	start(path,args,NProcess::run_once,wd);
+}
+
+void AppDaemon::start(const QString& path, const QStringList& args, NProcess::Type option, const QString& wd)
 {
 
 	qDebug() << "Starting Application";
 
-	NProcess *process = new NProcess(fullpath,args,option);
+	NProcess *process = new NProcess(path,args,option);
+	process->setWorkingDirectory(wd);
 	if(process->start())
 	{
 		connect(process,SIGNAL(exited()),this,SLOT(appExited()));
@@ -102,9 +114,9 @@ void AppDaemon::process_config(QFile& file)
 				qDebug() << "Found whitespace, or config error";	
 			else
 			{
-			qDebug() << "Config File List is: " + entry.at(0) + entry.at(1) + entry.at(2);
+				qDebug() << "Config File List is: " + entry.at(0) + entry.at(1) + entry.at(2);
 			
-appStart(entry.at(0),entry.at(1),entry.at(2).split(","),entry.at(2).toInt())
+				start(entry.at(1),entry.at(2).split(","),(NProcess::Type)entry.at(2).toInt(),entry.at(0));
 
 
 

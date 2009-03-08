@@ -15,7 +15,6 @@
 
 #include <QtCore/QCoreApplication>
 #include "appdaemon.h"
-#include "nprocess.h"
 #include <QtDebug>
 
 int main(int argc, char *argv[])

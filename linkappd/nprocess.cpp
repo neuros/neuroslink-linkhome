@@ -32,7 +32,7 @@ bool NProcess::start()
 	qDebug() << "Running NProcess::start()!";
 
 	process = new QProcess();
-	process->setWorkingDirecotry(workingdir);
+	process->setWorkingDirectory(workingdir);
 	process->closeWriteChannel();
 	process->closeReadChannel(QProcess::StandardOutput);
 	process->closeReadChannel(QProcess::StandardError);
@@ -83,17 +83,13 @@ void NProcess::ended(int,QProcess::ExitStatus)
 	emit exited();
 }
 
-void NProcess::setWorkingDirectory()
-{
-	if
-
 NProcess::~NProcess()
 {
 	if(process != NULL)
 		delete process;
 }
 
-NProcess::setWorkingDirectory(const QSTring& dir)
+void NProcess::setWorkingDirectory(const QString& dir)
 {
-	workdir = dir;
+	workingdir = dir;
 }
