@@ -24,7 +24,7 @@ AppDaemon::AppDaemon(QObject* parent)
 	new LinkHomeAdaptor(this);
 	QDBusConnection dbus = QDBusConnection::sessionBus();
 	dbus.registerObject("/LinkHome",this);
-
+	dbus.registerService("tv.neuros.LinkHome");
 
 	// Read config file and setup first apps
 	QFile configfile("/usr/lib/linkhome/linkappd.conf");
@@ -45,6 +45,7 @@ AppDaemon::AppDaemon(QObject* parent)
 
 void AppDaemon::AppStart(const QString& path, const QStringList& args, const QString& wd)
 {
+	qDebug() << "Application starting via dbus";
 	start(path,args,NProcess::run_once,wd);
 }
 
@@ -129,4 +130,9 @@ void AppDaemon::process_config(QFile& file)
 		}
 
 	}
+}
+
+void AppDaemon::Test()
+{
+	qDebug() << "Adaptor Test";
 }

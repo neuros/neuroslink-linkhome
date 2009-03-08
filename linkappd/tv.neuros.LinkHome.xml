@@ -1,0 +1,25 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="tv.neuros.LinkHome">
+    <signal name="errored">
+    </signal>
+    <signal name="exited">
+    </signal>
+    <signal name="started">
+    </signal>
+    <method name="Test">
+    </method>
+    <method name="AppStart">
+      <arg name="path" type="s" direction="in"/>
+      <arg name="args" type="as" direction="in"/>
+      <arg name="wd" type="s" direction="in"/>
+    </method>
+    <method name="AppStart">
+      <arg name="path" type="s" direction="in"/>
+      <arg name="args" type="as" direction="in"/>
+    </method>
+    <method name="AppStart">
+      <arg name="path" type="s" direction="in"/>
+    </method>
+  </interface>
+</node>

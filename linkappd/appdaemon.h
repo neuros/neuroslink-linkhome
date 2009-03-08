@@ -33,9 +33,10 @@ Q_CLASSINFO("D-Bus Interface","tv.neuros.LinkHome")
 
 public:
 	AppDaemon(QObject* parent = 0);
+	void start(const QString& path, const QStringList& args = QStringList(), NProcess::Type option = NProcess::run_once, const QString& wd = QString("~/"));
 
 public slots:
-	void start(const QString& path, const QStringList& args = QStringList(), NProcess::Type option = NProcess::run_once, const QString& wd = QString("~/"));
+	void Test();
 
 	// appstart for dbus
 	void AppStart(const QString& path, const QStringList& args = QStringList(), const QString& wd = QString("~/"));
