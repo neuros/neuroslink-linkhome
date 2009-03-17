@@ -27,8 +27,41 @@ body {
 }
 
 #menu_area {
+        /* Expand or reduce this according to taste.
+           Unfortunately it can't be allowed to expand horizontally just as much as it needs to.
+           It's either "expand to the entire page width" or "fixed or percent width"
+        */
+        width: 20%;
+
+        /* Setting margin-left and margin-right to auto is the trick to fload the div to center.
+           Adjust margin-top to your liking, i put 100px just for example */
+        margin: 100px auto 0px auto;
 }
 
+#menu_area dl {
+        list-style-type: none; /* do not remove this or it will add 20px margin-left to items */
+        padding: 0px; margin: 0px;
+}
+
+#menu_area dl dd {
+        /* This controls the vertical spacing between menu items (12px now) */
+        margin: 12px 0px 12px 0px;
+        padding: 0px;
+        text-align: center;
+}
+
+/* I added styles to img and p (item text) just for kicks. They look better to me this way,
+   but you can remove these styles to your taste. */
+#menu_area dl dd img {
+        border: 0px;
+}
+
+#menu_area dl dd p {
+        -moz-border-radius: 4px 4px 4px 4px;
+        background-color: #202020;
+        padding: 8px 0px 8px 0px;
+        margin: 0px;
+}
 
 #back_button {
 

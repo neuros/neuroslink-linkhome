@@ -5,7 +5,9 @@
 </%def>
 
 <div id="menu_area">
-	<p><a id="menu_item" title="Run Applications" href="/applications">Applications</a></p>
-	<p><a id="menu_item" title="Browse Neuros.TV" href="http://app.neuros.tv">Neuros.TV</a></p>
-	<p><a id="menu_item" title="Configure Link System" href="">System Settings</a></p>
+	<dl>
+		<dd><a id="menu_item" title="Run Applications" href="/applications">Applications</a></dd>
+		<dd><a id="menu_item" title="Browse Neuros.TV" href="http://app.neuros.tv">Neuros.TV</a></dd>
+		<dd><a id="menu_item" title="Configure Link System" href="">System Settings</a></dd>
+	</dl>
 </div>
