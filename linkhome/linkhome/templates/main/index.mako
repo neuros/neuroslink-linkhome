@@ -1,10 +1,11 @@
-<%inherit file="/applications/base.mako" />
+<%inherit file="/main/base.mako" />
 
 <%def name="head_tags()">
-<title>LinkHome v0.01</title>
+	<title>LinkHome v0.01</title>
 </%def>
 
-<li>Menu:</li>
-<li><a href="/applications">Applications</a><br /></li>
-<li><a href="http://app.neuros.tv">Neuros.TV</a><br /></li>
-<li><a href="">System Settings</a><br /></li>
+<div id="menu_area">
+	<p><a id="menu_item" title="Run Applications" href="/applications">Applications</a></p>
+	<p><a id="menu_item" title="Browse Neuros.TV" href="http://app.neuros.tv">Neuros.TV</a></p>
+	<p><a id="menu_item" title="Configure Link System" href="">System Settings</a></p>
+</div>

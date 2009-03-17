@@ -1,8 +1,8 @@
 body {
-	background-color: black;
-	background-image: url("/images/ntv-background.png");
-	background-repeat: no-repeat;
-	color: #696969;
+background-color: black;
+background-image: url("/images/ntv-background.png");
+background-repeat: no-repeat;
+color: #696969;
 }
 
 #menu_item {
@@ -12,12 +12,8 @@ body {
         color: #e3e3e3;
         background-color: #303030;
         border: 1px solid #262626;
-	display: block;
 	opacity: 0.8;
-	width: 192px;
-	height: 192px;
-	position: relative;
-	left: 20%;
+	display: block;
 }
 
 #menu_item:hover {
@@ -27,6 +23,10 @@ body {
 }
 
 #menu_area {
+	position: absolute;
+	top: 45%;
+	left: 25%;
+
 }
 
 
@@ -39,16 +39,8 @@ body {
         background-color: #303030;
         border: 1px solid #262626;
         opacity: 0.8;
+
 	position:fixed;
-	height: 100px;
-	width: 20px;
 	left:20px;
 	top:50%;
 }
-
-#back_button:hover {
-	opacity: 1.0;
-	color:#ffffff;
-	background-color: red;
-}
-

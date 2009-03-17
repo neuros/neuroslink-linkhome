@@ -5,8 +5,11 @@
 <title>LinkHome - Applications</title>
 </%def>
 
+<p><a id="back_button" href="/">Back</a></p>
 
+<div id="menu_area">
 % for f in files:
-  <li><a href="/applications/${f.name}"><img src="${f.Icon}"> ${f.AppName}</a> : ${f.Comment}<br /><br 
-/></li>
+<a id="menu_item" href="/applications/${f.name}" title="${f.Comment}"><img alt="${f.AppName} Icon" src="/applications/${f.name}/icon"><br>${f.AppName}</br></a>
 % endfor
+</div>
+
