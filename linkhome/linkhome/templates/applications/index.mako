@@ -12,7 +12,7 @@
 		% for f in files:
 		<dd>
 			<a id="menu_item" href="/applications/${f.name}" title="${f.Comment}">
-			<img alt="${f.AppName} Icon" src="/applications/${f.name}/icon">
+			<img alt="${f.AppName} Icon" src="/applications/${f.name}/icon" height="128" width="128">
 			<p>${f.AppName}</p>
 			</a>
 		</dd>

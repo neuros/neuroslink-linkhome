@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=XBMC
+GenericName=XBMC
+Comment=XBMC Media Center
+Exec=pidgin
+Icon=/usr/share/linkhome/icons/xbmc.png
+StartupNotify=true
+Terminal=false
+Type=Application
