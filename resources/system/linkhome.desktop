@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Link Home
+Comment=LinkHome browser based desktop
+GenericName=Desktop
+Exec=linkhome.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application

@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Tom Bruno <tbruno@neurostechnology.com>
 Standards-Version: 3.7.3
-Build-Depends: python (>= 2.5), python-pylons (>=0.9.6), debhelper (>= 5.0.0)
+Build-Depends: python (>= 2.5), python-pylons (==0.9.6.2), debhelper (>= 5.0.0)
 
 Package: linkhome
 Architecture: any

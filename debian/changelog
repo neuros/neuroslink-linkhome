@@ -2,8 +2,12 @@ linkhome (0.02) intrepid; urgency=low
 
   * Added controller and templates to main page
   * Added linkappd to sources
+  * Added xbmc to application list
+  * Added css styles to templates
+  * Modified templates to include better layout
+  * Icons now come from URL instead of filesystem
 
- -- Tom Bruno <tbruno@neurostechnology.com>  Fri, 06 Mar 2009 08:24:55 -0600
+ -- Tom Bruno <tbruno@neurostechnology.com>  Fri, 18 Mar 2009 15:06:55 -0600
 
 linkhome (0.01) intrepid; urgency=low
 
