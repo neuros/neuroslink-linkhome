@@ -1,3 +1,10 @@
+linkhome (0.02neuros1) intrepid; urgency=low
+
+  * Set cache directory to /tmp to avoid permission problems on compile
+  * Set http server to only listen on 127.0.0.1
+
+ -- Tom Bruno <tbruno@neurostechnology.com>  Sat, 21 Mar 2009 12:09:58 -0500
+
 linkhome (0.02) intrepid; urgency=low
 
   * Added controller and templates to main page
