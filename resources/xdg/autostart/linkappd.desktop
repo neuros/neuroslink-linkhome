@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=LinkHome
+Comment=LinkHome Application Daemon
+Icon=
+Exec=linkappd
+Terminal=false
+Type=Application
+Categories=
+X-GNOME-Autostart-enabled=true
+NoDisplay=true
+OnlyShowIn=GNOME;XFCE;

@@ -1,13 +1,7 @@
 # -------------------------------------------------
 # Project created by QtCreator 2009-03-04T15:18:14
 # -------------------------------------------------
-QT += network \
-    script \
-    sql \
-    xml \
-    xmlpatterns \
-    testlib \
-    dbus
+QT += dbus
 QT -= gui
 TARGET = linkappd
 CONFIG += console
