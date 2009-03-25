@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 5.0.0)
 
 Package: linkhome
 Architecture: any
-Depends: python (>= 2.5), python-pylons (>=0.9.6.2), python-pylons (<< 0.9.7), python-pastescript (>=1.3.6)
+Depends: python (>= 2.5), python-pylons (>=0.9.6.2), python-pylons (<< 0.9.7), python-pastescript (>=1.3.6), libqt4-dbus (>=4.4.3), libqt4-core (>=4.4.3)
 Description: The LinkHome Web Interface to your desktop
  LinkHome is a new replacement for traditional desktop systems. Designed to be
  viewed in the browser and on a HD TV, LinkHome brings all access to your system

@@ -5,4 +5,4 @@ linkhome/* /usr/lib/linkhome
 linkhome.sh /usr/bin
 linkappd/linkappd.conf /usr/lib/linkhome
 linkappd/linkappd /usr/bin
-
+debian/changelog /usr/share/doc/linkhome/changelog

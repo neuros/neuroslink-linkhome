@@ -1,3 +1,10 @@
+linkhome (0.03neuros2) intrepid; urgency=low
+
+  * Fix Qt4 package deps
+  * Fix xbmc.desktop to point to xbmc instead of pidgin
+
+ -- Tom Bruno <tbruno@neurostechnology.com>  Wed, 25 Mar 2009 10:12:22 -0500
+
 linkhome (0.03) intrepid; urgency=low
 
   *  Added gdm xdg autostart of linkhome
