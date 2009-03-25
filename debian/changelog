@@ -1,3 +1,23 @@
+linkhome (0.03) intrepid; urgency=low
+
+  *  Added gdm xdg autostart of linkhome
+  *  Reduced useless Qt4 deps for linkappd
+  *  Update debian package install instructions
+  *  Change linkappd.conf to not auto restart firefox
+  *  Fix error in nprocess.cpp init of timer
+  *  Added Dbus based application start in the LinkHome controller
+  *  New application/<app>/launch urls in LinkHome templates
+  *  Added gnome-menu icon for LinkHome
+  *  Made a few changes to setup.sh to copy more needed files
+  *  Make app restarting more robust
+  *  Add wait feature to linkappd.conf to delay the 
+          starting of firefox before linkhome is started
+  *  Add feature to stop trying to restart an application
+          if it restarts more than 5 times in 10 seconds
+  * Debug notes cleanup
+
+ -- Tom Bruno <tbruno@neurostechnology.com>  Wed, 25 Mar 2009 00:06:15 -0500
+
 linkhome (0.02neuros1) intrepid; urgency=low
 
   * Set cache directory to /tmp to avoid permission problems on compile
