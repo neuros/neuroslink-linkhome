@@ -17,7 +17,7 @@
 #include <QtDebug>
 
 NProcess::NProcess(const QString& fullpath, const QStringList& args, NProcess::Type option):
-process(NULL),apppath(fullpath),arguments(args),type(option),restarts(0),timer(NULL)
+process(NULL),apppath(fullpath),arguments(args),type(option),restarts(0)
 {
 }
 

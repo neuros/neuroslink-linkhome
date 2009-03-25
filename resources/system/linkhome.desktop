@@ -1,9 +1,13 @@
+
 [Desktop Entry]
+Encoding=UTF-8
 Version=1.0
-Name=Link Home
-Comment=LinkHome browser based desktop
-GenericName=Desktop
-Exec=linkhome.sh
-Terminal=false
-X-MultipleArgs=false
 Type=Application
+Terminal=false
+Icon[en_US]=gnome-panel-launcher
+Name[en_US]=LinkHome
+Exec=firefox http://localhost:5000
+Comment[en_US]=LinkHome Browser Based Desktop
+Name=LinkHome
+Comment=LinkHome Browser Based Desktop
+Icon=gnome-panel-launcher

@@ -1,5 +1,6 @@
 resources/example-menu/* /usr/share/linkhome
-resources/system/linkhome.desktop /etc/xdg/autostart
+resources/system/linkhome.desktop /usr/share/applications
+resources/xdg/autostart/linkhome.desktop /etc/xdg/autostart
 linkhome/* /usr/lib/linkhome
 linkhome.sh /usr/bin
 linkappd/linkappd.conf /usr/lib/linkhome

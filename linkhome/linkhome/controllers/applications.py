@@ -65,7 +65,7 @@ class ApplicationsController(BaseController):
 			session_bus = dbus.SessionBus()
 				
 			obj = session_bus.get_object('tv.neuros.LinkHome','/LinkHome')
-			obj.AppStart('pidgin',dbus_interface='tv.neuros.LinkHome')
+			obj.AppStart(entry.Exec,dbus_interface='tv.neuros.LinkHome')
 
 			return render('/applications/launched.mako', application = entry)
 
