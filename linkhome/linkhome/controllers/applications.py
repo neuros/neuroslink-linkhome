@@ -2,6 +2,7 @@ import logging
 import os
 import subprocess
 import mimetypes
+import dbus
 
 class DesktopEntry:
 	def Import(self, path, name):
@@ -44,23 +45,6 @@ class ApplicationsController(BaseController):
 
 		return render('/applications/index.mako', files = list)
 
-	def get(self, id):
-		entry = DesktopEntry()
-		entry.Import('/usr/share/linkhome',id.strip() + '.desktop')
-
-		# Open the process and start it in subprocess.
-		# This will be replaced by d-bus application launcher because
-		# if web daemon closes then so does the application.
-
-		try:
-			f = open('/dev/null','w')
-			subprocess.Popen([entry.Exec],stdout=f,stderr=f)
-		except:
-			return render('/applications/error.mako', error = entry)
-
-		return render('/applications/launched.mako', application = entry)
-            
-
 	def properties(self, app, prop):
 		entry = DesktopEntry()
 		entry.Import('/usr/share/linkhome',app.strip() + '.desktop')
@@ -77,13 +61,14 @@ class ApplicationsController(BaseController):
 
 		elif prop.strip() == 'launch':
 			print "Launch is run! " + prop.strip() + " " + prop
-			try:
-				f = open('/dev/null','w')
-				subprocess.Popen([entry.Exec],stdout=f,stderr=f)
-			except:
-				return render('/applications/error.mako', error = entry)
+			
+			session_bus = dbus.SessionBus()
+				
+			proxy = bus.get_object('tv.neuros.LinkHome','/LinkHome')
+			proxy.AppStart('pidgin',dbus_interface='tv.neuros.LinkHome')
 
 			return render('/applications/launched.mako', application = entry)
+
 		elif prop.strip() == 'info':
 
 			return render('/application/launched.mako', application = entry)
