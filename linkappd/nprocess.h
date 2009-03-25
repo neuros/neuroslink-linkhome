@@ -19,6 +19,7 @@
 #include <QObject>
 #include <QString>
 #include <QStringList>
+#include <QTimer>
 
 #include <QProcess>
 
@@ -42,13 +43,15 @@ private slots:
 	void restart(int,QProcess::ExitStatus);
 	void ended(int,QProcess::ExitStatus);
 
-
+	void toManyRestarts();
 private:
 	QProcess *process;
 	QString apppath;
 	QStringList arguments;
 	Type type;
 	QString workingdir;
+	int restarts;
+	QTimer timer;
 signals:
 	void error();
 	void started();

@@ -17,13 +17,15 @@
 #include <QtDebug>
 #include <QByteArray>
 #include <QDBusConnection>
+#include <stdlib.h>
+#include <time.h>
 
 AppDaemon::AppDaemon(QObject* parent)
 : QObject(parent)
 {
 	new LinkHomeAdaptor(this);
 	QDBusConnection dbus = QDBusConnection::sessionBus();
-	dbus.registerObject("/LinkHome",this);
+dbus.registerObject("/LinkHome",this);
 	dbus.registerService("tv.neuros.LinkHome");
 
 	// Read config file and setup first apps
@@ -98,37 +100,39 @@ void AppDaemon::process_config(QFile& file)
 		qDebug() << "Could not open config file: /usr/lib/linkhome/linkapp.conf";
 		return;
 	}
-	else
-	{
-		qDebug() << "File was opened!";
-	}
+
 	while(!file.atEnd())
 	{
-		qDebug() << "End Not Found Yet";
-
 		QByteArray line = file.readLine();
 		if(!line.startsWith("#"))
 		{
 			QString conf(line);
-			QStringList entry = conf.split(":",QString::SkipEmptyParts);
-			if(entry.size() < 4)
-				qDebug() << "Found whitespace, or config error";	
+			QStringList entry = conf.split(",",QString::SkipEmptyParts);
+			if(entry.size() < 3)
+			{
+				qDebug() << "Found whitespace, or config error so doing nothing for this entry:" << conf;
+			}
 			else
 			{
-				qDebug() << "Config File List is: " + entry.at(0) + entry.at(1) + entry.at(2);
+				QString workdir = entry.at(0);
+				QString app = entry.at(1);
+				QString option = entry.at( entry.size() - 2);
+				QString sleeptime = entry.at(entry.size() - 1 );
+				QStringList args;
+
+				for(int i = 2; i < entry.size() - 2; i++)
+				{
+					args.append(entry.at(i));
+				}
+					
 			
-				start(entry.at(1),entry.at(2).split(","),(NProcess::Type)entry.at(2).toInt(),entry.at(0));
-
-
+				start(app,args,(NProcess::Type)option.toInt(),workdir);
+				
+				// hardcode test to be sure linkhome did open.
+				sleep(sleeptime.toInt());				
 
 			}
-
 		}
-		else
-		{
-			qDebug() << "Found line that starts with #";
-		}
-
 	}
 }
 

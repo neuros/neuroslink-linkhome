@@ -17,7 +17,7 @@
 #include <QtDebug>
 
 NProcess::NProcess(const QString& fullpath, const QStringList& args, NProcess::Type option):
-process(NULL),apppath(fullpath),arguments(args),type(option)
+process(NULL),apppath(fullpath),arguments(args),type(option),restarts(0),timer(NULL)
 {
 }
 
@@ -68,7 +68,21 @@ bool NProcess::start()
 
 void NProcess::restart(int code,QProcess::ExitStatus status )
 {
-	qDebug() << "NProcess:: Restart Slot has Ran Codes are: Code: " + QString::number(code) + "Status: " + QString::number(status);
+
+	if( !timer.isActive())
+	{
+		qDebug() << "Init Timer !!!!!!!!!!!!!!!!!!!!!!!";
+		timer.setSingleShot(true);
+		timer.setInterval(10000);
+		connect(&timer,SIGNAL(timeout()),this,SLOT(toManyRestarts() ) );
+		timer.start();
+
+	}
+
+	qDebug() <<  "Restarted X times in 10 Seconds" << restarts;
+	restarts++;
+
+	qDebug() << "NProcess:: Restart Slot has Ran Codes are: Code: " + QString::number(code) + " Status: " + QString::number(status);
 
 	if(process != NULL)
 	{
@@ -92,4 +106,25 @@ NProcess::~NProcess()
 void NProcess::setWorkingDirectory(const QString& dir)
 {
 	workingdir = dir;
+}
+
+void NProcess::toManyRestarts()
+{
+	if(restarts > 5)
+	{
+		qDebug() << "To Many Restarts!!!!!!!!!";
+
+		disconnect(process);
+	
+		restarts = 0;
+		emit exited();	
+
+	}
+	else
+	{
+
+		qDebug() << "Continue on my friend !!!!!!!!!";
+
+		restarts = 0;
+	}
 }
